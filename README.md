@@ -57,7 +57,7 @@ See the [Wiki](https://github.com/ijemafe/PoE-Overlay/wiki) for further details.
 | Module        | Status        | Notes   |
 | ------------- |-------------: | ------- |
 | Linux         | 50%           | - Allow running this app on Linux
-| Trade         | 0%            | - Send messages<br>- Trade UI<br>- etc.
+| Trade         | 0%            | - Send messages (1click replys)<br>- Trade UI (add to party, kick, etc)<br>- Stash position notification 
 
 ## Enduser
 
