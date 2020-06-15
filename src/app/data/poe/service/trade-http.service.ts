@@ -25,6 +25,7 @@ const RETRY_LIMIT_COUNT = 1
   providedIn: 'root',
 })
 export class TradeHttpService {
+  private staticData: any = require('doc/poe/api_trade_data_static.json')
   constructor(
     private readonly http: HttpClient,
     private readonly browser: BrowserService,
@@ -101,18 +102,19 @@ export class TradeHttpService {
   }
 
   private getAndTransform<TResponse>(url: string): Observable<TResponse> {
-    return this.http
-      .get(url, {
-        observe: 'response',
-        responseType: 'text',
-        withCredentials: true,
-      })
-      .pipe(
-        retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
-        ),
-        map((response) => this.transformResponse(response))
-      )
+    return of(this.staticData)
+    // return this.http
+    //   .get(url, {
+    //     observe: 'response',
+    //     responseType: 'text',
+    //     withCredentials: true,
+    //   })
+    //   .pipe(
+    //     retryWhen((errors) =>
+    //       errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+    //     ),
+    //     map((response) => this.transformResponse(response))
+    //   )
   }
 
   private transformResponse<TResponse>(response: HttpResponse<string>): TResponse {
